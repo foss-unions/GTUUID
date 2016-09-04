@@ -1,0 +1,197 @@
+Global Trade Union Unique Identifier - A scheme for identifying any trade-union related entity with a unique identifier. 
+.d8888b. 88888888888 888     888 888     888 8888888 8888888b.
+d88P  Y88b    888     888     888 888     888   888   888  "Y88b
+888    888    888     888     888 888     888   888   888    888
+888           888     888     888 888     888   888   888    888
+888  88888    888     888     888 888     888   888   888    888
+888    888    888     888     888 888     888   888   888    888
+Y88b  d88P    888     Y88b. .d88P Y88b. .d88P   888   888  .d88P
+"Y8888P88    888      "Y88888P"   "Y88888P"  8888888 8888888P"
+
+Global Trade Union Unique ID.
+
+A unique reference for every union on earth. So that we may have
+a greater unity.
+
+Copyright (C)  2016 Jordan Ashley Craw
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+
+VERSION HISTORY
+  0.1       04/09/2016        Initial version.
+
+INTRODUCTION
+
+Trade unions throughout the world require some method of being able to align
+themselves more clearly. However, the problem at present is that unity of
+unions cannot be achieved if they cannot clearly be identified from eachother.
+
+This document provides a non-political, technical document outlining how each
+union can be allocated a unique identifier which is necessary for other goals
+for trade unions in general.
+
+DEFINITIONS
+
+The term COUNTRY CODE refers to the ISO 3166-1 Numeric Standard.
+The term TRADE UNION refers to a body engaged in collective bargaining.
+The term TRADE UNION ENTITY refers to a legal body which is related to or
+engages in TRADE UNION activities.
+The term TRADE UNION ENTITY CODE  refers to the standard defined within this
+document used to differentiate types of TRADE UNION ENTITY.
+The term INDUSTRY refers to the ISIC Rev 4. standard defined by the United
+Nations for the purpose of classifying industry. This definition makes an
+amendment to the standard to include "X" to refer to all industries.
+The term INDUSTRY GROUPING CODE refers to the standard within this document to
+aggregate the use of INDUSTRY.
+
+INDUSTRY GROUPING CODE
+
+The INDUSTRY GROUPING CODE refers to the grouping of ISIC top-level industry
+codes as a single string. The INDUSTRY GROUPING CODE is comprised of only the
+applicable industries which a TRADE UNION ENTITY operates within.
+
+Case 1. A TRADE UNION ENTITY engaging in multiple INDUSTRIES (i.e. Information,
+Financial and Real Estate Activities) in all sub-industry areas.
+
+    Name of Industry                    ISIC Code prefix    ISIC Sub-Codes
+    ----------------------------------------------------------------------
+    Information and Communication       J                   58-63
+    Financial and insurance services    K                   64-66
+    Real Estate Activities              L                   68
+
+    Industry Grouping Code
+    J68-63.K64-66.L68
+
+Case 2. A TRADE UNION ENTITY engaging in multiple INDUSTRIES (i.e. Information,
+Financial and Real Estate Activities) but only some sub-industry areas.
+
+    Name of Industry                    ISIC Code prefix    ISIC Sub-Codess
+    ----------------------------------------------------------------------
+    Information and Communication       J                   58-60,61
+    Financial and insurance services    K                   64,66
+    Real Estate Activities              L                   68
+
+    Industry Grouping Code
+    J58-60,61.K64,66.L68
+
+Case 3. A TRADE UNION ENTITY engaging in all INDUSTRIES (i.e. Confederation) or
+which technically do not differentiate which INDUSTRIES (i.e. Some Unions)
+
+    Industry Grouping Code:
+    X0-99
+
+TRADE UNION ENTITY CODE
+
+The TRADE UNION ENTITY CODE defines the following types to differentiate the
+different entities within trade unions:
+
+    GP   Global Parent Entity
+    CU   Confederation of Trade Unions
+    TU   Trade Union
+    TS   Trade Union Sub-Entity (Excluding committees and structures similar)
+
+CURRENT REVISION OF FORMAT
+
+{[PARENT GTUUID]}::[TRADE UNION ENTITY CODE] : [COUNTRY CODE] : [INDUSTRY GROUPING] :
+[NUMERICAL IDENTIFIER IN SCOPE]
+
+PARENTAGE
+
+Only the top-level parent, known as the GLOBAL PARENT ENTITY may be referred
+to without a parent GTUUID. The GLOBAL PARENT IDENTITY must be referred to
+as the parent GTUUID where the TRADE UNION ENTITY is the highest level, such
+as a global confederation (such as UniGlobal).
+
+The GTUUID of the GLOBAL PARENT ENTITY is:
+GP:001:X0-99:0000000000
+
+The GLOBAL PARENT ENTITY refers to the M49 geographical region of "World" in
+this instance.
+
+Any entity which is not the GLOBAL PARENT ENTITY, MUST include a GTUUID. In
+the case that any TRADE UNION ENTITY below the level of confederation does
+not have a parent, then it will be allocated to the DEFAULT PARENT ENTITY,
+as the GLOBAL PARENT ENTITY is too high in the hierarchy to be allocated
+towards.
+
+HIERARCHY OF PARENTAGE
+The hierarchy of parentage is as follows
+
+    GP (Global Parent Entity)
+      --> CU (Confederation of Trade Unions)
+        --> TU (Trade Union)
+          -> TS (Trade Union Sub-Entity)
+
+INHERITANCE OF VALUES
+
+Where a TRADE UNION ENTITY is below the level of "CU" (Confederation of trade
+unions), it MUST inherit the values of COUNTRY CODE and INDUSTRIAL GROUPING from
+its parent TRADE UNION ENTITY.
+
+No TRADE UNION ENTITY can be allocated to a TRADE UNION ENTITY TYPE which is not
+its parent type (TS to CU, TU to GP, TS to GP, etc.)
+
+Where a TRADE UNION ENTITY is a Sub-Entity, they MUST be allocated to a
+TRADE UNION ENTITY which is A TU.
+
+ENUMERATION OF NUMERICAL VALUES
+
+The enumeration of numerical values is allocated based upon the scope of the
+TRADE UNION ENTITY CODE. Each TRADE UNION ENTITY CODE has its own available
+range of 9,999,999,998 values, excluding any reserved addresses within that
+scope.
+
+The GLOBAL PARENT ENTITY code shall have its own entity space of 1 value; for
+itself and for no other entity but itself.
+
+Each COUNTRY CODE shall have its own entity space of 10 x 10^29 values,
+comprised of the entity spaces of CU, TU and TS.
+
+  Type           Code         Start Number          End Number
+  -------------------------------------------------------------
+  Global          GP          0000000000            0000000000
+  Country         CU          0000000001            9999999999
+  Country         TU          0000000001            9999999999
+  Country         TS          0000000001            9999999999
+
+Each GP may contain 1 entity, the GP itself, and may contain 9,999,999,998
+CU entities, which may contain the same number of TU entities, which may
+contain the same number of TS entities.
+
+This ensures that each confederation and union is capable of containing a
+very large number of TRADE UNION ENTITIES within their entity space.
+
+RESERVED NUMERICAL IDENTIFIERS
+
+There shall also be reserved numerical identifiers within each space.
+
+  Code        Number         Reason
+  ---------------------------------------------
+  GP          0000000000     Is the GP itself.
+  CU          0000000000     Default "orphaned" TRADE UNION ENTITIES for any CU
+  TU          0000000000     Default "orphaned" TRADE UNION ENTITIES for any TU
+  TS          0000000000     Default "orphaned" TRADE UNION ENTITIES for any TS
+
+
+EXAMPLE USAGE OF GTUUID
+
+Example 1. Trade Union Confederation in the United Kingdom, its parent the GPE.
+
+  {GP:001:X0-99:0000000000}::CU:826:X0-99:0000000001
+
+Example 2. Trade Union in the United Kingdom, a member of a trade union
+confederation in Example 1, representing telecommunications.
+
+  {CU:826:X0-99:0000000001}::TU:826:J62:0000000001
+
+Example 3. Trade Union Branch of the trade union in Example 2.
+
+  {TU:826:J62:0000000001}::TS:826:J62:0000000001
+
+AUTHORITY FOR ADDITION OF TRADE UNION ENTITIES.
+The authority reserved for the creation of new TRADE UNION ENTITIES and
+allocation of GTUUIDs is yet to be defined.
