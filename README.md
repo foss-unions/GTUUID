@@ -1,13 +1,3 @@
-Global Trade Union Unique Identifier - A scheme for identifying any trade-union related entity with a unique identifier. 
-.d8888b. 88888888888 888     888 888     888 8888888 8888888b.
-d88P  Y88b    888     888     888 888     888   888   888  "Y88b
-888    888    888     888     888 888     888   888   888    888
-888           888     888     888 888     888   888   888    888
-888  88888    888     888     888 888     888   888   888    888
-888    888    888     888     888 888     888   888   888    888
-Y88b  d88P    888     Y88b. .d88P Y88b. .d88P   888   888  .d88P
-"Y8888P88    888      "Y88888P"   "Y88888P"  8888888 8888888P"
-
 Global Trade Union Unique ID.
 
 A unique reference for every union on earth. So that we may have
