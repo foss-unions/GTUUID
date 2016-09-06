@@ -108,7 +108,7 @@ as a global confederation (such as UniGlobal).
 The GTUUID of the GLOBAL PARENT ENTITY is:
 GP:001:X0-99:0000000000
 
-The GLOBAL PARENT ENTITY refers to the M49 geographical region of "World" in
+The GLOBAL PARENT ENTITY refers to the ISO-31661-1 geographical region of "World" in
 this instance.
 
 Any entity which is not the GLOBAL PARENT ENTITY, MUST include a GTUUID. In
