@@ -161,8 +161,16 @@ Each GP may contain 1 entity, the GP itself, and may contain 9,999,999,998
 CU entities, which may contain the same number of TU entities, which may
 contain the same number of TS entities.
 
+Where TRADE UNION ENTITIES are to be allocated retrospectively, the 
+identification numbers provided shall be enumerated based upon the
+order of the TRADE UNION ENTITIES founding year in the first instance,
+and then alphabetically in the second instance according to any 
+favoured alphanumeric sorting algorithm. 
+
 This ensures that each confederation and union is capable of containing a
 very large number of TRADE UNION ENTITIES within their entity space.
+
+
 
 RESERVED NUMERICAL IDENTIFIERS
 
