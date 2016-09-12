@@ -53,6 +53,9 @@ The INDUSTRY GROUPING CODE refers to the grouping of ISIC top-level industry
 codes as a single string. The INDUSTRY GROUPING CODE is comprised of only the
 applicable industries which a TRADE UNION ENTITY operates within.
 
+Code prefixes must always be listed in alphabetical order when creating the 
+INDUSTRY GROUPING CODE (i.e A1-2.B2-3.C1-4 etc).
+
 Case 1. A TRADE UNION ENTITY engaging in multiple INDUSTRIES (i.e. Information,
 Financial and Real Estate Activities) in all sub-industry areas.
 
