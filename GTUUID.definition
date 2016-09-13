@@ -92,7 +92,8 @@ The TRADE UNION ENTITY CODE defines the following types to differentiate the
 different entities within trade unions:
 
     GP   Global Parent Entity
-    CU   Confederation of Trade Unions
+    CU   Confederation or Congress of Trade Unions
+    FE   Federation of Trade Unions
     TU   Trade Union
     TS   Trade Union Sub-Entity (Excluding committees and structures similar)
 
